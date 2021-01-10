@@ -1,11 +1,4 @@
 <?php
-  /*
-    Le projet All in One est un produit Xelyos mis à disposition gratuitement
-    pour tous les serveurs de jeux Role Play. En échange nous vous demandons de
-    ne pas supprimer le ou les auteurs du projet.
-    Created by : Xelyos - Aros
-    Edited by :
-  */
   require "vendor/autoload.php"; // Inclusion de l'autoloader
 
   /* Associer Flight à Twig */
@@ -217,6 +210,7 @@
 
     echo "Votre candidature à bien été prise en compte !</br><p><a href='/'>Retourner vers la page principale</a></p>";
   });
+
 
   Flight::start(); // Denrière ligne du fichier
 ?>

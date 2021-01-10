@@ -1,11 +1,3 @@
-/*
-  Le projet All in One est un produit Xelyos mis à disposition gratuitement
-  pour tous les serveurs de jeux Role Play. En échange nous vous demandons de
-  ne pas supprimer le ou les auteurs du projet.
-  Created by : Xelyos - Aros
-  Edited by :
-*/
-
 /* PC */
 
 nav
@@ -14,7 +6,7 @@ nav
   left: 3%;
   top: 47%;
   border-radius: 10px;
-  background-color: #EDEFF5;
+  background-color: var(--background);
   padding: 1% 1% 1% 1%;
 }
 
@@ -23,20 +15,20 @@ nav a
   display: block;
   padding-top: 1%;
   text-decoration: none;
-  color: #000;
+  color: var(--navBarHover);
   font-size: 1.1em;
 }
 
 nav a:hover
 {
-  color: #103469;
+  color: var(--Text);
 }
 
 nav p
 {
   font-weight: bold;
   text-decoration: underline;
-  color: #103469;
+  color: var(--Text);
   font-size: 1.2em;
 }
 
@@ -48,19 +40,7 @@ nav p
   margin-left: 25%;
   margin-right: 15%;
   border-radius: 10px;
-  background-color: #EDEFF5;
-  text-align: center;
-}
-
-
-.contenu
-{
-  display: block;
-  margin-top: 2%;
-  margin-left: 20%;
-  margin-right: 20%;
-  border-radius: 10px;
-  background-color: #EDEFF5;
+  background-color: var(--background);
   text-align: center;
 }
 
@@ -68,7 +48,7 @@ nav p
 {
   padding-top: 1%;
   padding-left: 2%;
-  color: #900000;
+  color: var(--Text);
 }
 
 .contenu h2
@@ -76,7 +56,7 @@ nav p
   text-align: left;
   padding-top: 1%;
   padding-left: 2%;
-  color: #103469;
+  color: var(--Text);
   text-decoration: underline;
 }
 
@@ -100,12 +80,12 @@ nav p
   padding: 0% 2% 2% 2%;
   text-align: center;
   font-size: 1.25em;
-  color: #000;
+  color: var(--navBarHover);
 }
 
 .contenu a:hover
 {
-  color: #103469;
+  color: var(--Text);
   text-decoration: underline;
 }
 
@@ -133,6 +113,6 @@ nav p
 {
   text-align: center;
   font: italic small-caps bold 16px/2 cursive;
-  color: #A81616;
+  color: var(--Text);
   text-decoration: underline;
 }

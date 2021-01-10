@@ -1,20 +1,11 @@
-{#
-  Le projet All in One est un produit Xelyos mis à disposition gratuitement
-  pour tous les serveurs de jeux Role Play. En échange nous vous demandons de
-  ne pas supprimer le ou les auteurs du projet.
-  Created by : Xelyos - Aros
-  Edited by :
-#}
-{# Page vierge pour les twig #}
+{# Page Histoire #}
 {% extends "_base.twig" %}
 
-{% block style %}{% endblock %}
+{% block description %}Histoire de la LSPD{% endblock %}
 
-{% block description %}Règlements de la LSPD{% endblock %}
+{% block key %}Hitsoire{% endblock %}
 
-{% block key %}Règlements{% endblock %}
-
-{% block title %}- Règlement de la ville{% endblock %}
+{% block title %}- Histoire{% endblock %}
 
 {% block navigation %}
   <p><a href="/">Accueil</a></p>
@@ -22,25 +13,87 @@
   <p><a href="/Candidature" target="_blank">Candidature</a></p>
 {% endblock %}
 
-
 {% block main %}
-<nav>
-  <p>Navigation :</p>
-  <a href="#1">Titre 1</a>
-  <a href="#2">Titre 2</a>
-</nav>
+  <section class="contenu">
+    <!-- L'histoire des ambulanciers a été pris via le lien suivant :-->
+    <!-- http://www.chu-poitiers.fr/specialites/formation-ambulancier/historique/ -->
+    <h1>Histoire</h1>
+    <p>
+      Le métier d’ambulancier est très ancien car dès le VIe siècle un corps de
+      cavaliers romains était chargé d’évacuer les blessés lors des combats.
+      Au XVIe siècle, lors des guerres de religion, pendant le règne d’Henry IV,
+      l’armée inventa les premières ambulances : les caisses d’artillerie,
+      tirées par des chevaux et qui amenaient les munitions, servaient ensuite
+      au transport des blessés quand elles étaient vides. Des soldats étaient
+      donc affectés au relevage et au transport des blessés.
+     </p>
 
-<section class="contenu">
-  <h1>Règlements</h1>
+     <p>
+       Deux siècles plus tard, en 1794, le chirurgien militaire Dominique
+       Larrey crée les premières « ambulances volantes » qui accompagnaient les
+       soldats jusque sur le champ de bataille et prenaient immédiatement en
+       charge les blessés. Il s’agissait de voitures à chevaux transportant deux
+       à quatre blessés et permettant leur évacuation vers l’arrière pour y être
+       soignés.
+     </p>
 
-  <h2 id="1">I - Titre 1</h2>
-  <h3>Article 1 :</h3>
-  <p>Contenu</p>
-</section>
+     <p>
+       Quelques années après, un autre chirurgien militaire, Pierre-François
+       Percy fut à l’origine du concept d’ambulance médicalisée : il créa un
+       corps de « chirurgie mobile ».
+     </p>
 
-<section class="contenu">
-  <h2 id="2">II - Titre 2</h2>
-  <h3>Article 1 :</h3>
-  <p>Contenu</p>
-</section>
+     <p>
+       Les caissons d’artillerie de type « wurst » furent transformer en
+       ambulance tout en transportant rapidement jusqu’aux soldats blessés un
+       chirurgien, des infirmiers et du matériel de secours. Larrey et Percy
+       sont à l’origine de la création des brancardiers militaires, en 1813.
+       Ils se servaient d’un brancard démontable dont chaque hampe était
+       constituée par la lance d’un brancardier-soldat dont le shako
+       (couvre-chef militaire) contenait du matériel de premier secours.
+     </p>
+
+     <p>
+       Dès 1830, le docteur Hyppolite Larrey mit en œuvre le concept de son père
+       pour les civils blessés sur la voie publique.
+     </p>
+
+     <p>
+       Paris se dota en 1881, à l’initiative du Dr Henri Nachtel et de Victor Hugo
+       (conseillers municipaux), d’un service d’ambulances hippomobiles
+       médicalisées par des internes de l’Hôtel Dieu pour le transport des
+       blessés sur la voie publique et des malades contaminés par la variole,
+       ancêtres des Smur d’aujourd’hui. Ce sera le service des Ambulances
+       Municipales.
+     </p>
+
+     <p>
+       En 1941, l’Assistance publique met en œuvre le service des Ambulances des
+       hôpitaux de Paris. C’est également à cette époque que se créent les
+       premières sociétés privées de transport de malades. Le métier
+       d’ambulancier privé est né.
+     </p>
+
+     <p>
+       La loi du 10 juillet 1970 précisera les premières règles organisant cette
+       profession.
+     </p>
+
+     <p>
+       Le 26 mars 1973, est créé le Certificat de capacité d’ambulancier (CCA)
+       et le 27 mars l’Agrément des entreprises de transports sanitaires.
+     </p>
+
+     <p>
+       C’est cette même année que la Croix bleue à six branches appelée « Croix
+       de vie » devient le signe distinctif des entreprises d’ambulances agréées.
+     </p>
+
+     <p>
+       La loi de janvier 1986 sur l’aide médicale urgente et les transports
+       sanitaires, modifiée pour la dernière fois en 2004, ainsi que le décret
+       de novembre 1987 sur l’agrément des transports sanitaires terrestres
+       modifient les dispositions contenues dans la loi de 1970.
+     </p>
+    </section>
 {% endblock %}
