@@ -1,4 +1,6 @@
 <?php
+  use Michelf\Markdown;
+
   function serveurIni($categorie, $param)
   {
     $params = parse_ini_file("server.ini", true); // Insertion du fichier : server.ini
@@ -35,5 +37,18 @@
                 )
               );
     $candidature->save();
+  }
+
+  function getStructure($path) {
+    $file = file_get_contents($path . "/content/index.json", TRUE);
+    return json_decode($file);
+  }
+
+  function getFileContent($path, $file) {
+    return file_get_contents($path . "/content/" . $file);
+  }
+
+  function renderHTMLFromMarkdown($string_markdown_formatted) {
+    return Markdown::defaultTransform($string_markdown_formatted);
   }
 ?>

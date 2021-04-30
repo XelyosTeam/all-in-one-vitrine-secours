@@ -16,12 +16,25 @@
 {% endblock %}
 
 {% block main %}
-  <!-- <nav>
+  {% if index|length > 0 %}
+  <nav>
     <p>Navigation :</p>
-  </nav> -->
+    {% for item in index %}
+    <a href="#{{ item.identifiant }}">{{ item.nom }}</a>
+    {% endfor %}
+    <a href="#">Revenir en haut</a>
+  </nav>
+  {% endif %}
 
-  <section class="contenu">
-    <h1>Règlements</h1>
-    <p>Le règlement est actuellement en cours d'élaboration</p>
-</section>
+  {% for rule in content %}
+  <section id="{{ rule.identifiant }}" class="contenu">
+    {% if rule.type == 'miranda' %}
+      <section class="miranda">
+    {% endif %}
+      {{ rule.fichier|raw }}
+    {% if rule.type == 'miranda' %}
+      </section>
+    {% endif %}
+  </section>
+  {% endfor %}
 {% endblock %}
