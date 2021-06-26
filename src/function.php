@@ -1,9 +1,8 @@
 <?php
   use Michelf\Markdown;
 
-  function serveurIni($categorie, $param)
-  {
-    $params = parse_ini_file("server.ini", true); // Insertion du fichier : server.ini
+  function serveurIni($categorie, $param) {
+    $params = parse_ini_file(".env", true);
     return $params[$categorie][$param];
   }
 
