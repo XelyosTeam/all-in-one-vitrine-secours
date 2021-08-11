@@ -1,0 +1,43 @@
+{
+  "questions": [
+    {
+      "type": "list",
+      "title": "Question n°1",
+      "ecole": "Question n°1",
+      "responses": [
+        "Proposition 1",
+        "Proposition 2",
+        "Proposition 3",
+        "Proposition 4",
+        "Proposition 5"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "Question n°2 (texte)",
+      "ecole": "Question n°2"
+    },
+    {
+      "type": "text",
+      "title": "Question n°3 (texte)",
+      "ecole": "Question n°3"
+    },
+    {
+      "type": "text",
+      "title": "Question n°4 (texte)",
+      "ecole": "Question n°4"
+    },
+    {
+      "type": "list",
+      "title": "Question n°5",
+      "ecole": "Question n°5",
+      "responses": [
+        "Proposition 1",
+        "Proposition 2",
+        "Proposition 3",
+        "Proposition 4",
+        "Proposition 5"
+      ]
+    }
+  ]
+}
