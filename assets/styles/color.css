@@ -20,6 +20,7 @@
   --BoutonTextHover: #000; /* texte bouton survolé */
   --Text: #900000; /* couleur texte */
   --placeholder: #900000;  /* texte champ de saisie */
+  --textAlert: #AE0000; /* texte des alertes */
 
   /* Footer */
   --footerBack: #900000; /* Couleur de fond */

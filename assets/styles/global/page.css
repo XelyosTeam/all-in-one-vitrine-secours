@@ -1,7 +1,6 @@
 /* PC */
 
-nav
-{
+nav {
   position: fixed;
   left: 3%;
   top: 47%;
@@ -10,8 +9,7 @@ nav
   padding: 1% 1% 1% 1%;
 }
 
-nav a
-{
+nav a {
   display: block;
   padding-top: 1%;
   text-decoration: none;
@@ -19,13 +17,11 @@ nav a
   font-size: 1.1em;
 }
 
-nav a:hover
-{
+nav a:hover {
   color: var(--Text);
 }
 
-nav p
-{
+nav p {
   font-weight: bold;
   text-decoration: underline;
   color: var(--Text);
@@ -33,8 +29,7 @@ nav p
 }
 
 
-.contenu
-{
+.contenu {
   display: block;
   margin-top: 2%;
   margin-left: 25%;
@@ -44,15 +39,13 @@ nav p
   text-align: center;
 }
 
-.contenu h1
-{
+.contenu h1 {
   padding-top: 1%;
   padding-left: 2%;
   color: var(--Text);
 }
 
-.contenu h2
-{
+.contenu h2 {
   text-align: left;
   padding-top: 1%;
   padding-left: 2%;
@@ -60,57 +53,59 @@ nav p
   text-decoration: underline;
 }
 
-.contenu h3
-{
+.contenu h3 {
   text-align: left;
-  margin-bottom: -2%;
+  /* margin-bottom: -2%; */
   padding-left: 2%;
   text-decoration: underline;
 }
 
-.contenu p
-{
+.contenu p {
   padding: 0 4% 2% 4%;
   text-align: justify;
   font-size: 1.5em;
 }
 
-.contenu a
-{
+.contenu a {
   padding: 0% 2% 2% 2%;
   text-align: center;
   font-size: 1.25em;
   color: var(--navBarHover);
 }
 
-.contenu a:hover
-{
+.contenu a:hover {
   color: var(--Text);
   text-decoration: underline;
 }
 
+.contenu ul {
+  text-align: justify;
+  font-size: 1.5em;
+}
+
+.contenu li {
+  text-align: justify;
+  font-size: 0.75em;
+}
+
 /* Lien d'invitation discord */
-.contenu .discord
-{
+.contenu .discord {
   margin-top: 5%;
 }
 
-.contenu .discord a img
-{
+.contenu .discord a img {
   width: 20%;
   height: auto;
 }
 
 /* Loi Miranda */
-.miranda p
-{
+.miranda p {
   text-align: center;
   font-size: 1.25em;
   font-style: oblique;
 }
 
-.miranda p strong
-{
+.miranda p strong {
   text-align: center;
   font: italic small-caps bold 16px/2 cursive;
   color: var(--Text);

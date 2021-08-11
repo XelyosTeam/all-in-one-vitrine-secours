@@ -18,7 +18,7 @@
 {% endblock %}
 
 {% block main %}
-  <form class="connexion" action="/ajout-candidature" method="post">
+  <form class="connexion" action="/ajout-candidature" enctype="multipart/form-data" method="post">
 
     <section class="contenu">
       <h1>Inscription Civil</h1>
@@ -84,170 +84,47 @@
       </div>
     </section>
 
+    {# Saisie des disponibilité #}
+    {% set __superVar = [] %}
+    {% set __ecole = { 'titre': "Periode scolaire/alternance", 'label': "time_school", 'type' : 'school' } %}
+    {% set __travail = { 'titre': "Periode de Travail/Stage/Alternance", 'label': "time_work", 'type' : 'work' } %}
+    {% set __vacance = { 'titre': "Periode de vacances", 'label': "time_vacances", 'type' : 'vacances' } %}
+
+    {% set __types = ['school', 'work', 'vacances'] %}
+    {% set __days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'] %}
+    {% set __hzs = ['am', 'pm', 'abend', 'night'] %}
+
+    {% set __superVar = __superVar|merge([__ecole, __travail, __vacance]) %}
+
     <section class="contenu">
       <h1>Disponibilité</h1>
+      {% for periode in __superVar %}
+        {% set index = loop.index %}
+        <div>
+          <label for="{{ periode.label }}">{{ periode.titre }} :</label>
+          <select name="candid_{{ periode.label }}" id="{{ periode.label }}" onchange="visibility_{{ index }}()">
+            <option value="1">Concerné</option>
+            <option value="0">Non Concerné</option>
+          </select>
+        </div>
 
-      <div>
-        <label for="time_school">Periode scolaire/alternance :</label>
-        <select name="candid_time_school" id="time_school" onchange="visibility_1()">
-          <option value="1">Concerné</option>
-          <option value="0">Non Concerné</option>
-        </select>
-      </div>
-
-      <div style="display: block;" id="dispo_1">
-        <section class="grille_dispo"> <!-- A améliorer -->
-          <p></p>
-          <p class="except">Matin</p>
-          <p class="except">Après-midi</p>
-          <p class="except">Soir</p>
-          <p class="except">Nuit</p>
-          <p>Lundi</p>
-          <input type="checkbox" name="school_lun_am">
-          <input type="checkbox" name="school_lun_pm">
-          <input type="checkbox" name="school_lun_abend">
-          <input type="checkbox" name="school_lun_night">
-          <p>Mardi</p>
-          <input type="checkbox" name="school_mar_am">
-          <input type="checkbox" name="school_mar_pm">
-          <input type="checkbox" name="school_mar_abend">
-          <input type="checkbox" name="school_mar_night">
-          <p>Mercredi</p>
-          <input type="checkbox" name="school_mer_am">
-          <input type="checkbox" name="school_mer_pm">
-          <input type="checkbox" name="school_mer_abend">
-          <input type="checkbox" name="school_mer_night">
-          <p>Jeudi</p>
-          <input type="checkbox" name="school_jeu_am">
-          <input type="checkbox" name="school_jeu_pm">
-          <input type="checkbox" name="school_jeu_abend">
-          <input type="checkbox" name="school_jeu_night">
-          <p>Vendredi</p>
-          <input type="checkbox" name="school_ven_am">
-          <input type="checkbox" name="school_ven_pm">
-          <input type="checkbox" name="school_ven_abend">
-          <input type="checkbox" name="school_ven_night">
-          <p>Samedi</p>
-          <input type="checkbox" name="school_sam_am">
-          <input type="checkbox" name="school_sam_pm">
-          <input type="checkbox" name="school_sam_abend">
-          <input type="checkbox" name="school_sam_night">
-          <p>Dimanche</p>
-          <input type="checkbox" name="school_dim_am">
-          <input type="checkbox" name="school_dim_pm">
-          <input type="checkbox" name="school_dim_abend">
-          <input type="checkbox" name="school_dim_night">
-        </section>
-      </div>
-
-
-      <div>
-        <label for="time_vacances">Periode de vacances :</label>
-        <select name="candid_time_vacances" id="time_vacances" onchange="visibility_2()">
-          <option value="1">Concerné</option>
-          <option value="0">Non Concerné</option>
-        </select>
-      </div>
-
-      <div style="display: block;" id="dispo_2">
-        <section class="grille_dispo"> <!-- A améliorer -->
-          <p></p>
-          <p class="except">Matin</p>
-          <p class="except">Après-midi</p>
-          <p class="except">Soir</p>
-          <p class="except">Nuit</p>
-          <p>Lundi</p>
-          <input type="checkbox" name="vacances_lun_am">
-          <input type="checkbox" name="vacances_lun_pm">
-          <input type="checkbox" name="vacances_lun_abend">
-          <input type="checkbox" name="vacances_lun_night">
-          <p>Mardi</p>
-          <input type="checkbox" name="vacances_mar_am">
-          <input type="checkbox" name="vacances_mar_pm">
-          <input type="checkbox" name="vacances_mar_abend">
-          <input type="checkbox" name="vacances_mar_night">
-          <p>Mercredi</p>
-          <input type="checkbox" name="vacances_mer_am">
-          <input type="checkbox" name="vacances_mer_pm">
-          <input type="checkbox" name="vacances_mer_abend">
-          <input type="checkbox" name="vacances_mer_night">
-          <p>Jeudi</p>
-          <input type="checkbox" name="vacances_jeu_am">
-          <input type="checkbox" name="vacances_jeu_pm">
-          <input type="checkbox" name="vacances_jeu_abend">
-          <input type="checkbox" name="vacances_jeu_night">
-          <p>Vendredi</p>
-          <input type="checkbox" name="vacances_ven_am">
-          <input type="checkbox" name="vacances_ven_pm">
-          <input type="checkbox" name="vacances_ven_abend">
-          <input type="checkbox" name="vacances_ven_night">
-          <p>Samedi</p>
-          <input type="checkbox" name="vacances_sam_am">
-          <input type="checkbox" name="vacances_sam_pm">
-          <input type="checkbox" name="vacances_sam_abend">
-          <input type="checkbox" name="vacances_sam_night">
-          <p>Dimanche</p>
-          <input type="checkbox" name="vacances_dim_am">
-          <input type="checkbox" name="vacances_dim_pm">
-          <input type="checkbox" name="vacances_dim_abend">
-          <input type="checkbox" name="vacances_dim_night">
-        </section>
-      </div>
-
-
-      <div>
-        <label for="time_work">Periode de Travail/Stage/Alternance :</label>
-        <select name="candid_time_work" id="time_work" onchange="visibility_3()">
-          <option value="1">Concerné</option>
-          <option value="0">Non Concerné</option>
-        </select>
-      </div>
-
-      <div style="display: block;" id="dispo_3">
-        <section class="grille_dispo"> <!-- A améliorer -->
-          <p></p>
-          <p class="except">Matin</p>
-          <p class="except">Après-midi</p>
-          <p class="except">Soir</p>
-          <p class="except">Nuit</p>
-          <p>Lundi</p>
-          <input type="checkbox" name="work_lun_am">
-          <input type="checkbox" name="work_lun_pm">
-          <input type="checkbox" name="work_lun_abend">
-          <input type="checkbox" name="work_lun_night">
-          <p>Mardi</p>
-          <input type="checkbox" name="work_mar_am">
-          <input type="checkbox" name="work_mar_pm">
-          <input type="checkbox" name="work_mar_abend">
-          <input type="checkbox" name="work_mar_night">
-          <p>Mercredi</p>
-          <input type="checkbox" name="work_mer_am">
-          <input type="checkbox" name="work_mer_pm">
-          <input type="checkbox" name="work_mer_abend">
-          <input type="checkbox" name="work_mer_night">
-          <p>Jeudi</p>
-          <input type="checkbox" name="work_jeu_am">
-          <input type="checkbox" name="work_jeu_pm">
-          <input type="checkbox" name="work_jeu_abend">
-          <input type="checkbox" name="work_jeu_night">
-          <p>Vendredi</p>
-          <input type="checkbox" name="work_ven_am">
-          <input type="checkbox" name="work_ven_pm">
-          <input type="checkbox" name="work_ven_abend">
-          <input type="checkbox" name="work_ven_night">
-          <p>Samedi</p>
-          <input type="checkbox" name="work_sam_am">
-          <input type="checkbox" name="work_sam_pm">
-          <input type="checkbox" name="work_sam_abend">
-          <input type="checkbox" name="work_sam_night">
-          <p>Dimanche</p>
-          <input type="checkbox" name="work_dim_am">
-          <input type="checkbox" name="work_dim_pm">
-          <input type="checkbox" name="work_dim_abend">
-          <input type="checkbox" name="work_dim_night">
-        </section>
-      </section>
-      </div>
+        <div style="display: block;" id="dispo_{{ index }}">
+          <section class="grille_dispo">
+            <p></p>
+            <p class="except">Matin</p>
+            <p class="except">Après-midi</p>
+            <p class="except">Soir</p>
+            <p class="except">Nuit</p>
+            {% for day in __days %}
+              <p>{{ day }}</p>
+              {% for hz in __hzs %}
+                <input type="checkbox" name="{{ __types[ index - 1 ] }}_{{ day|slice(0, 3)|lower}}_{{ hz }}">
+              {% endfor %}
+            {% endfor %}
+          </section>
+        </div>
+      {% endfor %}
+    </section>
 
 
     <section class="contenu">
@@ -267,64 +144,40 @@
     <section class="contenu">
       <h1>Test de connaissance</h1>
 
-      <div>
-        <label for="swat">Question n°1</label>
-        <select name="candid_swat" id="swat">
-          <option value="0">Choix 1</option>
-          <option value="1">Choix 2</option>
-          <option value="2">Choix 3</option>
-          <option value="3">Choix 4</option>
-        </select>
-      </div>
+      {% for q, question in questions %}
+        <div>
+          {% if question.type == "list" %}
+            <label for="question_{{ q }}">{{ question.title }}</label>
+            <select name="question_{{ q }}">
+              {% for r, response in question.responses %}
+                <option value="{{ r }}">{{ response }}</option>
+              {% endfor %}
+            </select>
+          {% elseif question.type == "text" %}
+            <label>{{ question.title }}</label>
+            <input type="text" name="question_{{ q }}" placeholder="Votre réponse" required>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </section>
+
+    <section class="contenu">
+      <h1>Ajouter document(s)</h1>
 
       <div>
-        <label>Question n°2</label>
-        <input type="text" name="candid_k9" id="unité_canine" placeholder="Réponse" required>
+        <label for="uploads">Insérer des documents :</label>
+        <input id="uploads" type="file" accept="application/pdf" name="attachments[]" onchange="checkSizeFiles()" multiple>
+        <input id="taillemax" type="hidden" name="MAX_FILE_SIZE" value="5000000">
+
       </div>
 
-      <div>
-        <label for="parole">Question n°3</label>
-        <select name="candid_weapon" id="parole">
-          <option value="0">Choix 1</option>
-          <option value="1">Choix 2</option>
-          <option value="2">Choix 3</option>
-          <option value="3">Choix 4</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="commissariat">Question n°4</label>
-        <select name="candid_lieu" id="commissariat">
-          <option value="0">Choix 1</option>
-          <option value="1">Choix 2</option>
-          <option value="2">Choix 3</option>
-          <option value="3">Choix 4</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="route">Question n°5</label>
-        <select name="code_de_la_route" id="route">
-          <option value="0">Choix 1</option>
-          <option value="1">Choix 2</option>
-          <option value="2">Choix 3</option>
-          <option value="3">Choix 4</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="ordre">Question n°6</label>
-        <select name="candid_ordre" id="ordre">
-          <option value="0">Choix 1</option>
-          <option value="1">Choix 2</option>
-          <option value="2">Choix 3</option>
-          <option value="3">Choix 4</option>
-        </select>
+      <div id="alert-taille" class="alertTaille">
+        <p>Taille maximum des fichiers dépassée</p>
       </div>
 
       <div class="btn">
         <p></p>
-        <button type="submit" name="button">Envoyer</button>
+        <button id="submit-button" type="submit" name="button">Envoyer</button>
       </div>
     </section>
   </form>

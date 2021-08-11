@@ -1,11 +1,10 @@
 {
   "navigation": [
-    
   ],
   "contenu": [
     {
-      "identifiant": "wait",
-      "fichier": "waiting.md",
+      "identifiant": "interne",
+      "fichier": "interne.md",
       "type": "normal"
     }
   ]

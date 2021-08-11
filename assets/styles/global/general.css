@@ -1,46 +1,39 @@
 /* PC */
 
-.hid_tel
-{
+.hid_tel {
   display: block;
 }
 
-*::-webkit-scrollbar
-{
+*::-webkit-scrollbar {
   display: none;
 }
 
-a
-{
+a {
   text-decoration: none;
 }
 
-h6
-{
+h6 {
   visibility: hidden;
   margin-bottom: -5%;
 }
 
-body /* Trouver une solution pour l'améliorer */
+body 
 {
   background-image: url(../../img/background.jpg);
   background-attachment: fixed;
 }
 
-header
-{
+header {
   text-align: center;
 }
 
-header img
-{
+header img {
   margin-top: 3%;
   width: 10%;
   height: auto;
 }
 
-.nav_bar
-{
+.nav_bar {
   display: grid;
   width: 75%;
   grid-template-columns: repeat(6,1fr);
@@ -51,20 +44,17 @@ header img
   background-color: var(--navBarBack);
 }
 
-.nav_bar a
-{
+.nav_bar a {
   color: var(--navBarText);
   text-transform: capitalize;
   font-size: 1.3em;
 }
 
-.nav_bar a:hover
-{
+.nav_bar a:hover {
   color: var(--navBarHover);
 }
 
-footer
-{
+footer {
   margin-top: 2%;
   margin-bottom: 0;
   width: 100%;
@@ -74,8 +64,7 @@ footer
   padding-bottom: 0.25%;
 }
 
-footer p
-{
+footer p {
   color: var(--footerText);
   font-weight: bold;
   font-size: 1.1em;
