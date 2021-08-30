@@ -71,7 +71,7 @@
         break;
       case 1:
         $path = dirname(__FILE__);
-        Flight::view()->display('candid_lspd.twig', array(
+        Flight::view()->display('candid_ems.twig', array(
           'formulaires' => getStructure($path, 'candidature')
         ));
         break;
